@@ -1,12 +1,17 @@
 #![deny(clippy::all)]
 
-fn greet(name: &String) {
-    println!("hello, {}!", name);
+// fn greet(name: &String) {
+//     println!("hello, {}!", name);
+// }
+
+fn empty_string(value: &mut String) {
+    // clear the content of the input string
+    value.clear()
 }
 
 fn main() {
-    let s1: String = String::from("john");
-    let s2: &String = &s1;
-    greet(&s1);
-    greet(s2)
+    let mut name: String = String::from("john");
+    println!("{}", name);
+    empty_string(&mut name);
+    println!("{}", name)
 }
