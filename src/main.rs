@@ -1,10 +1,10 @@
 #![deny(clippy::all)]
 
-fn say_hello_world() { // the function does not have any return value (could be typed with '-> ()')
-    let message: String = String::from("hello world");
-    println!("{}", message);
+fn say_hello_world(to_person: String) -> String {
+    format!("hello, {}!", to_person)
 }
 
 fn main() {
-    say_hello_world();
+    let hello: String = say_hello_world(String::from("leo"));
+    println!("{}", hello)
 }
