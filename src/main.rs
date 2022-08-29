@@ -1,14 +1,10 @@
 #![deny(clippy::all)]
 
-fn say_hello_world() -> String {
-    // the last statement (without ';') will be automaticaly returned
-    String::from("Hello world!")
-
-    // 'return' keyword (with ';') can also be used, but is not a good practice
-    // return String::from("Hello world!");
+fn say_hello_world() { // the function does not have any return value (could be typed with '-> ()')
+    let message: String = String::from("hello world");
+    println!("{}", message);
 }
 
 fn main() {
-    let message: String = say_hello_world();
-    println!("{}", message);
+    say_hello_world();
 }
