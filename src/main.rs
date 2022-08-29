@@ -1,18 +1,14 @@
 #![deny(clippy::all)]
 
-// fn greet(name: &String) {
-//     println!("hello, {}!", name);
-// }
+fn say_hello_world() -> String {
+    // the last statement (without ';') will be automaticaly returned
+    String::from("Hello world!")
 
-// fn empty_string(value: &mut String) {
-//     // clear the content of the input string
-//     value.clear()
-// }
-
-fn get_name() -> &String {
-    &"John".to_string()
+    // 'return' keyword (with ';') can also be used, but is not a good practice
+    // return String::from("Hello world!");
 }
 
 fn main() {
-    let name = get_name();
+    let message: String = say_hello_world();
+    println!("{}", message);
 }
