@@ -1,6 +1,8 @@
 #![deny(clippy::all)]
 
 fn main() {
-    let full_name = |first_name: &str, last_name: &str| format!("{} {}", first_name, last_name);
-    println!("{}", full_name("john", "lennon"))
+    let multiply_by_two = |x: i32| x * 2;
+    let ptr = multiply_by_two;
+    let result = ptr(12);
+    print!("{}", result)
 }
