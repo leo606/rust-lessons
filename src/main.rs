@@ -1,8 +1,10 @@
 #![deny(clippy::all)]
 
+fn process_name(name: &str, callback: fn(&str) -> String) -> String {
+    callback(name)
+}
+
 fn main() {
-    let multiply_by_two = |x: i32| x * 2;
-    let ptr = multiply_by_two;
-    let result = ptr(12);
-    print!("{}", result)
+    let name_processed = process_name("john", |name: &str| name.to_uppercase());
+    println!("{}", name_processed)
 }
