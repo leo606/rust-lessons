@@ -5,10 +5,11 @@ struct Person {
     age: u8,
 }
 
+fn get_person(name: String, age: u8) -> Person {
+    Person { name, age }
+}
+
 fn main() {
-    let person: Person = Person {
-        name: "layne".to_string(),
-        age: 30,
-    };
+    let person = get_person("layne".to_string(), 90);
     println!("the person age {}, and name is {}", person.age, person.name)
 }
