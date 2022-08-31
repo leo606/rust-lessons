@@ -1,15 +1,8 @@
 #![deny(clippy::all)]
 
-struct Person {
-    name: String,
-    age: u8,
-}
-
-fn get_person(name: String, age: u8) -> Person {
-    Person { name, age }
-}
+struct Point(f64, f64, f64);
 
 fn main() {
-    let person = get_person("layne".to_string(), 90);
-    println!("the person age {}, and name is {}", person.age, person.name)
+    let point: Point = Point(3.2, 3.2, 3.2);
+    println!("x = {} y = {} z = {}", point.0, point.1, point.2);
 }
