@@ -1,5 +1,7 @@
 #![deny(clippy::all)]
 
+#[derive(Debug)]
+
 struct Point(f64, f64, f64);
 
 impl Point {
@@ -24,9 +26,5 @@ impl Point {
 
 fn main() {
     let point: Point = Point(6.2, 3.2, 3.2);
-    let point_two_times = point.twice();
-    println!(
-        "{}, {}, {}",
-        point_two_times.0, point_two_times.1, point_two_times.2
-    );
+    println!("{:?}", point)
 }
