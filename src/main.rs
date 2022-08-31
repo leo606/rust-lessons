@@ -22,9 +22,13 @@ impl Point {
         self.1 *= 2.0;
         self.2 *= 2.0;
     }
+
+    fn zero() -> Point {
+        Point(0.0, 0.0, 0.0)
+    }
 }
 
 fn main() {
-    let point: Point = Point(6.2, 3.2, 3.2);
+    let point: Point = Point::zero();
     println!("{:?}", point)
 }
