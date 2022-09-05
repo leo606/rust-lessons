@@ -2,18 +2,26 @@
 
 #[derive(PartialEq)]
 
-enum AnimalType {
-    // enums always in pascal case
-    Dog, // and the properties too
-    Cat,
-    Rabbit,
+struct Point(f64, f64);
+
+enum Shapes {
+    Circle { radius: f64, center: Point },
+    Rectangle { width: f64, height: f64 },
 }
 
 fn main() {
-    let my_dog: AnimalType = AnimalType::Cat;
-    match my_dog {
-        // matches patters has to cover all of enum type
-        AnimalType::Dog => println!("is a dog"),
-        _ => println!("some animal") // using _ (default), not covering all case
+    let rectagle: Shapes = Shapes::Rectangle {
+        width: 3.0,
+        height: 4.0,
+    };
+
+    if let Shapes::Rectangle {
+        width: 3.4,
+        height: 3.4,
+    } = rectagle
+    {
+        println!("is equal")
+    } else {
+        println!("is not equal")
     }
 }
