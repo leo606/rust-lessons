@@ -12,8 +12,8 @@ enum AnimalType {
 fn main() {
     let my_dog: AnimalType = AnimalType::Cat;
     match my_dog {
+        // matches patters has to cover all of enum type
         AnimalType::Dog => println!("is a dog"),
-        AnimalType::Cat => println!("is a cat"),
-        AnimalType::Rabbit => println!("is a rabbit"),
+        _ => println!("some animal") // using _ (default), not covering all case
     }
 }
