@@ -15,13 +15,11 @@ fn main() {
         height: 4.0,
     };
 
-    if let Shapes::Rectangle {
-        width: 3.4,
-        height: 3.4,
-    } = rectagle
-    {
-        println!("is equal")
-    } else {
-        println!("is not equal")
+    match rectagle {
+        Shapes::Rectangle {
+            width: 3.,
+            height: 4.,
+        } => println!("is equal"),
+        _ => println!("is not equal"),
     }
 }
