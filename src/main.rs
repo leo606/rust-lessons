@@ -1,9 +1,6 @@
 #![deny(clippy::all)]
 
 fn main() {
-    let mut counter: i16 = 0;
-    loop {
-        println!("{}", counter);
-        counter += 1;
-    }
+    let values: [&str; 3] = ["value0", "value1", "value2"];
+    println!("length: {}", values.len())
 }
