@@ -1,10 +1,16 @@
 #![deny(clippy::all)]
 
 fn main() {
-    let values1: Vec<i32> = vec![1, 2, 3];
-    if values1.contains(&9) {
-        println!("true")
+    let mut values1: Vec<i32> = vec![1, 2, 3];
+    if !values1.is_empty() {
+        println!("empty")
     } else {
-        println!("false")
+        println!("not empty")
+    }
+    values1.clear();
+    if values1.is_empty() {
+        println!("empty")
+    } else {
+        println!("not empty")
     }
 }
