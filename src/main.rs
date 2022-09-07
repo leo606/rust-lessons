@@ -1,16 +1,17 @@
 #![deny(clippy::all)]
 
+use std::collections::HashMap;
+
 fn main() {
-    let mut values1: Vec<i32> = vec![1, 2, 3];
-    if !values1.is_empty() {
-        println!("empty")
+    let mut values: HashMap<&str, &str> = HashMap::new();
+
+    values.insert("foo", "bar");
+    values.insert("name", "this is a name");
+
+    if values.contains_key("name") {
+        println!("contains name");
+        println!("{}", values["name"])
     } else {
-        println!("not empty")
-    }
-    values1.clear();
-    if values1.is_empty() {
-        println!("empty")
-    } else {
-        println!("not empty")
+        println!("no name");
     }
 }
