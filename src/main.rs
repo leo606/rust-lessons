@@ -2,12 +2,26 @@
 
 use std::collections::HashMap;
 
+#[derive(Hash, Eq, PartialEq, Debug)]
+
+struct Person {
+    name: String,
+    age: u8,
+}
+
 fn main() {
-    let mut values: HashMap<&str, &str> = HashMap::new();
+    let mut values: HashMap<&str, Person> = HashMap::new();
 
-    values.insert("dog", "lyra");
-    
-    values.entry("cat").or_insert("noo");
+    let person: Person = Person {
+        name: "name".to_string(),
+        age: 1,
+    };
+    println!("{:?}", person);
 
-    println!("{:?}", values)
+    values.insert("personA", person);
+
+    println!();
+    println!();
+    println!();
+    println!("{:?}", values);
 }
