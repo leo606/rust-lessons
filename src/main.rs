@@ -8,19 +8,10 @@ fn main() {
     values.insert("foo", "bar");
     values.insert("name", "this is a name");
 
-    println!("{:?}", values);
+    let bar = match values.get("foo") {
+        Some(value) => value,
+        None => "not found"
+    };
 
-    if values.contains_key("foo") {
-        println!("contains 'foo'")
-    } else {
-        println!("does not contains 'foo'")
-    }
-
-    values.remove("foo");
-
-    if values.contains_key("foo") {
-        println!("contains 'foo'")
-    } else {
-        println!("does not contains 'foo'")
-    }
+    println!("{}", bar)
 }
