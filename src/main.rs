@@ -8,10 +8,17 @@ fn main() {
     values.insert("foo", "bar");
     values.insert("name", "this is a name");
 
-    if values.contains_key("name") {
-        println!("contains name");
-        println!("{}", values["name"])
+    if values.contains_key("foo") {
+        println!("contains 'foo'")
     } else {
-        println!("no name");
+        println!("does not contains 'foo'")
+    }
+
+    values.remove("foo");
+
+    if values.contains_key("foo") {
+        println!("contains 'foo'")
+    } else {
+        println!("does not contains 'foo'")
     }
 }
