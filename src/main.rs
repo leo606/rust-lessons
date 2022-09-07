@@ -8,10 +8,7 @@ fn main() {
     values.insert("foo", "bar");
     values.insert("name", "this is a name");
 
-    let bar = match values.get("foo") {
-        Some(value) => value,
-        None => "not found"
-    };
-
-    println!("{}", bar)
+    for (&key, &value) in &values {
+        println!("{}: {}", key, value);
+    }
 }
