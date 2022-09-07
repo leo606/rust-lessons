@@ -1,6 +1,7 @@
 #![deny(clippy::all)]
 
 use std::collections::HashMap;
+use std::collections::hash_map::Entry;
 
 fn main() {
     let mut values: HashMap<&str, &str> = HashMap::new();
@@ -8,7 +9,10 @@ fn main() {
     values.insert("foo", "bar");
     values.insert("name", "this is a name");
 
-    for (&key, &value) in &values {
-        println!("{}: {}", key, value);
+    let entry: Entry<&str, &str> = values.entry("foo");
+
+    match entry {
+        std::collections::hash_map::Entry::Occupied(value) => println!("{:?}", value.get()),
+        _ => println!("not found")
     }
 }
