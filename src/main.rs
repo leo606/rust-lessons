@@ -8,6 +8,8 @@ fn main() {
     values.insert("foo", "bar");
     values.insert("name", "this is a name");
 
+    println!("{:?}", values);
+
     if values.contains_key("foo") {
         println!("contains 'foo'")
     } else {
