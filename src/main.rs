@@ -3,7 +3,10 @@
 fn main() {
     let values: Vec<&str> = vec!["john", "jane", "mary", "bob", "tom"];
 
-    for name in values.into_iter().filter(|n: &&str| n.len() == 3) {
+    for name in values.iter() {
+        if name.len() != 3 {
+            continue;
+        }
         println!("{}", name)
     }
 }
