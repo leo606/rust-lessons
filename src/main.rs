@@ -7,8 +7,7 @@ fn main() {
 
     let values_iter: Iter<i32> = values.iter();
 
-    let values_sum: i32 = values_iter.sum();
-    let values_sum_two: i32 = values_iter.sum(); // iterators cannot be double consumed
+    let values_double: Vec<i32> = values_iter.map(|value: &i32| value * 2).collect();
 
-    println!("{}", values_sum);
+    println!("{:?}", values_double);
 }
