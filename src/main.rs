@@ -1,12 +1,6 @@
 #![deny(clippy::all)]
 
 fn main() {
-    let values: Vec<&str> = vec!["john", "jane", "mary", "bob", "tom"];
-
-    for name in values.iter() {
-        if name.len() == 3 {
-            break;
-        }
-        println!("{}", name)
-    }
+    let value: Option<i32> = Some(10);
+    let name = Option::<&str>::None;
 }
