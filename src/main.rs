@@ -1,27 +1,13 @@
 #![deny(clippy::all)]
 
-use std::collections::HashMap;
-
-#[derive(Hash, Eq, PartialEq, Debug)]
-
-struct Person {
-    name: String,
-    age: u8,
-}
+use std::slice::Iter;
 
 fn main() {
-    let mut values: HashMap<&str, Person> = HashMap::new();
+    let values: Vec<i32> = vec![1, 2, 3, 4, 5];
 
-    let person: Person = Person {
-        name: "name".to_string(),
-        age: 1,
-    };
-    println!("{:?}", person);
+    let values_iter: Iter<i32> = values.iter();
 
-    values.insert("personA", person);
+    let values_sum: i32 = values_iter.sum();
 
-    println!();
-    println!();
-    println!();
-    println!("{:?}", values);
+    println!("{}", values_sum);
 }
