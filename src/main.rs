@@ -1,10 +1,9 @@
 #![deny(clippy::all)]
 
 fn main() {
-    let name: Option<&str> = None;
+    let name: Option<&str> = Some("john");
 
-    match name {
-        Some(name) => println!("{}", name),
-        None => println!("a horse with no name")
-    }
+    let name_unsafely_unrapped = name.expect("a horse with no name");
+
+    println!("{}", name_unsafely_unrapped);
 }
