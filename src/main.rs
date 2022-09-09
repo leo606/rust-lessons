@@ -1,6 +1,10 @@
 #![deny(clippy::all)]
 
 fn main() {
-    let value: Option<i32> = Some(10);
-    let name = Option::<&str>::None;
+    let name: Option<&str> = None;
+
+    match name {
+        Some(name) => println!("{}", name),
+        None => println!("a horse with no name")
+    }
 }
