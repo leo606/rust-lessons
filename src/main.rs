@@ -1,9 +1,9 @@
 #![deny(clippy::all)]
 
 fn main() {
-    let name: Option<&str> = None;
+    let name: Option<&str> = Some("sdf");
 
-    let name_wrapped = name.unwrap_or("default name");
+    let b: bool = name.is_some();
 
-    println!("{}", name_wrapped)
+    println!("{}", b)
 }
