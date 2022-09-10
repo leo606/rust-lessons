@@ -18,10 +18,7 @@ fn get_full_name() -> Result<String, String> {
 
 fn main() {
     let full_name: Result<String, String> = get_full_name();
-    // let length = full_name.map(|name| name.len()).unwrap_or_default();
+    let length = full_name.map_err(|err_msg| err_msg.len());
 
-    match full_name {
-        Ok(name) => println!("{}", name),
-        Err(msg) => println!("Error: {}", msg)
-    }
+    println!("{:?}", length)
 }
