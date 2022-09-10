@@ -1,8 +1,11 @@
 #![deny(clippy::all)]
 
 fn main() {
-    let age: Option<i32> = Some(2);
-    let age_multiplied_by_two = age.map(|age| age * 2);
-    println!("{}", age_multiplied_by_two.unwrap_or_default())
+    // Box is a reference to a value in the heap
+    let value: Result<&str, Box<dyn std::error::Error>> = Ok("great stuff");
 
+    match value {
+        Ok(value) => println!("{}", value),
+        Err(_) => println!("Error")
+    }
 }
