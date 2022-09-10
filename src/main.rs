@@ -1,11 +1,12 @@
 #![deny(clippy::all)]
 
-fn main() {
-    // Box is a reference to a value in the heap
-    let value: Result<&str, Box<dyn std::error::Error>> = Ok("great stuff");
+fn get_user_name() -> Result<String, ()> {
+    // Ok("some name".to_string())
+    Err(())
+}
 
-    match value {
-        Ok(value) => println!("{}", value),
-        Err(_) => println!("Error")
-    }
+fn main() {
+    let user_name = get_user_name().expect("failed to get user name");
+
+    println!("hello, {}", user_name)
 }
