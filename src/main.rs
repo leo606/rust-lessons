@@ -1,12 +1,13 @@
 #![deny(clippy::all)]
 
 fn get_user_name() -> Result<String, ()> {
-    Ok("some name".to_string())
-    // Err(())
+    // Ok("some name".to_string())
+    Err(())
 }
 
 fn main() {
-    get_user_name().expect_err("not failed to get user name");
+    let is_ok: bool = get_user_name().is_ok();
+    let is_err: bool = get_user_name().is_err();
 
-    // println!("hello, {}", user_name)
+    println!("{} {}", is_ok, is_err)
 }
