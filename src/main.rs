@@ -1,13 +1,26 @@
 #![deny(clippy::all)]
 
-fn get_user_name() -> Result<String, ()> {
-    // Ok("some name".to_string())
+fn get_first_name() -> Result<String, ()> {
+    // Ok("john".to_string())
     Err(())
 }
 
-fn main() {
-    let is_ok: bool = get_user_name().is_ok();
-    let is_err: bool = get_user_name().is_err();
+fn get_last_name() -> Result<String, ()> {
+    Ok("lennon".to_string())
+    // Err(())
+}
 
-    println!("{} {}", is_ok, is_err)
+fn get_full_name() -> Result<String, ()> {
+    let first_name: String = get_first_name()?;
+    let last_name: String = get_last_name()?;
+    Ok(format!("{} {}", first_name, last_name))
+}
+
+fn main() {
+    let full_name: Result<String, ()> = get_full_name();
+
+    match full_name {
+        Ok(name) => println!("{}", name),
+        Err(_) => println!("Errorrr"),
+    }
 }
