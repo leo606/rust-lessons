@@ -1,7 +1,11 @@
 #![deny(clippy::all)]
 
-struct Person<'a> { // must define how long references will live for
-    name: &'a str,
+// fn get_fist_name<'a>(full_name: &'a str) -> &'a str {
+//     full_name
+// }
+
+fn get_fist_name(full_name: &str) -> &str { // rust compiler automaticaly assign lifetime operators to parameter and return value
+    full_name
 }
 
 fn main() {
