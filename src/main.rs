@@ -1,12 +1,7 @@
 #![deny(clippy::all)]
 
-// fn get_fist_name<'a>(full_name: &'a str) -> &'a str {
-//     full_name
-// }
-
-fn get_fist_name(full_name: &str) -> &str { // rust compiler automaticaly assign lifetime operators to parameter and return value
-    full_name
-}
+// lifetime rules
+// #1 - if you have parameters to your function that is references, the compiler automaticaly assings a lifetime operator to each one of them
 
 fn main() {
 
