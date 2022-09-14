@@ -1,12 +1,19 @@
 #![deny(clippy::all)]
 
-// lifetime rules
-// #1 - if you have parameters to your function that is references, the compiler automaticaly assings a lifetime operator to each one of them
-// #2 - single input lifetime is assigned to all outputs
-// #3 - if &self or &mut self in parameters, lifetime of self is assigned to output
+struct Person {
+    first_name: String,
+    last_name: String,
+    age: u8,
+}
 
-enum Animal<'a> {
-    Dog {name: &'a str}
+trait HassFullName {
+    fn full_name(&self) -> String;
+}
+
+impl HassFullName for Person {
+    fn full_name(&self) -> String {
+        format!("{} {}", self.first_name, self.last_name)
+    }
 }
 
 fn main() {}
