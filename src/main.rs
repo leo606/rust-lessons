@@ -1,6 +1,6 @@
 #![deny(clippy::all)]
 
-#[derive(Debug)]
+use std::fmt;
 
 struct Person {
     first_name: String,
@@ -33,7 +33,17 @@ impl HassFullName for Person {
     }
 }
 
+impl fmt::Display for Person {
+    fn fmt(&self, formater: &mut fmt::Formatter) -> fmt::Result {
+        write!(
+            formater,
+            "{} {}, {}",
+            self.first_name, self.last_name, self.age
+        )
+    }
+}
+
 fn main() {
     let person: Person = Person::new("Leonardo Ferreira", 12);
-    println!("{:?}", person)
+    println!("{}", person)
 }
