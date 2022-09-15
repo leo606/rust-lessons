@@ -43,7 +43,16 @@ impl fmt::Display for Person {
     }
 }
 
+fn print_full_name(value: &impl HassFullName) {
+    println!("{}", value.full_name())
+}
+
+fn print_details<T: HassFullName>(value: &T) {
+    println!("{}", value.full_name())
+}
+
 fn main() {
     let person: Person = Person::new("Leonardo Ferreira", 12);
-    println!("{}", person)
+    print_full_name(&person);
+    print_details(&person)
 }
