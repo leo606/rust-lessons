@@ -8,8 +8,25 @@ struct Person {
     age: u8,
 }
 
-trait HassFullName {
+trait HasName {
+    fn first_name(&self) -> &str;
+    fn last_name(&self) -> &str;
+}
+
+trait HasFullName
+where
+    Self: HasName,
+{
     fn full_name(&self) -> String;
+}
+
+impl<T> HasFullName for T
+where
+    T: HasName,
+{
+    fn full_name(&self) -> String {
+        format!("{} {}", self.first_name, self.last_name)
+    }
 }
 
 trait CanInitializeWithFullName {
@@ -27,11 +44,20 @@ impl CanInitializeWithFullName for Person {
     }
 }
 
-impl HassFullName for Person {
-    fn full_name(&self) -> String {
-        format!("{} {}", self.first_name, self.last_name)
+impl HasName for Person {
+    fn first_name(&self) -> &str {
+        &self.first_name
+    }
+    fn last_name(&self) -> &str {
+        &self.first_name
     }
 }
+
+// impl HasFullName for Person {
+//     fn full_name(&self) -> String {
+//         format!("{} {}", self.first_name, self.last_name)
+//     }
+// }
 
 impl fmt::Display for Person {
     fn fmt(&self, formater: &mut fmt::Formatter) -> fmt::Result {
@@ -43,13 +69,13 @@ impl fmt::Display for Person {
     }
 }
 
-fn print_full_name(value: &impl HassFullName) {
+fn print_full_name(value: &impl HasFullName) {
     println!("{}", value.full_name())
 }
 
 fn print_details<T>(value: &T)
 where
-    T: HassFullName + CanRun,
+    T: HasFullName + CanRun,
 {
     println!("{}", value.full_name());
     value.run()
