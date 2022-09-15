@@ -47,8 +47,19 @@ fn print_full_name(value: &impl HassFullName) {
     println!("{}", value.full_name())
 }
 
-fn print_details<T: HassFullName>(value: &T) {
-    println!("{}", value.full_name())
+fn print_details<T: HassFullName + CanRun>(value: &T) {
+    println!("{}", value.full_name());
+    value.run()
+}
+
+trait CanRun {
+    fn run(&self);
+}
+
+impl CanRun for Person {
+    fn run(&self) {
+        todo!()
+    }
 }
 
 fn main() {
