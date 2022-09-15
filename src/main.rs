@@ -47,7 +47,10 @@ fn print_full_name(value: &impl HassFullName) {
     println!("{}", value.full_name())
 }
 
-fn print_details<T: HassFullName + CanRun>(value: &T) {
+fn print_details<T>(value: &T)
+where
+    T: HassFullName + CanRun,
+{
     println!("{}", value.full_name());
     value.run()
 }
