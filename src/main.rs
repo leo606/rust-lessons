@@ -21,5 +21,7 @@ impl<T> Deref for BoxedValue<T> {
 
 fn main() {
     let age: BoxedValue<u8> = BoxedValue::new(2);
-    println!("{}", *age)
+    let age_derefered = age.deref();
+    println!("{}", age_derefered)
+
 }
