@@ -1,7 +1,15 @@
 #![deny(clippy::all)]
 
+struct BoxedValue<T> {
+    value: T,
+}
+
+impl<T> BoxedValue<T> {
+    fn new(value: T) -> Self {
+        BoxedValue { value }
+    }
+}
+
 fn main() {
-    let age: Box<i32> = Box::new(30);
-    let twice: i32 = *age * 2;
-    println!("{}", twice)
+    let age: BoxedValue<u8> = BoxedValue::new(2);
 }
