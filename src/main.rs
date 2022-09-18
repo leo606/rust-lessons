@@ -23,6 +23,6 @@ fn main() {
     let age: BoxedValue<u8> = BoxedValue::new(2);
     let age_derefered = age.deref(); // deref method returns a reference to the value
     let actual_age = *age; // * gives the actual u8 value, not a reference
-    println!("{}", age_derefered)
-
+    let age_pointer = *(age.deref());
+    println!("{}", age_pointer)
 }
