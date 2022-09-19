@@ -19,10 +19,11 @@ impl<T> Deref for BoxedValue<T> {
     }
 }
 
+fn print_integer(value: &i32) {
+    println!("{}", value)
+}
+
 fn main() {
-    let age: BoxedValue<u8> = BoxedValue::new(2);
-    let age_derefered = age.deref(); // deref method returns a reference to the value
-    let actual_age = *age; // * gives the actual u8 value, not a reference
-    let age_pointer = *(age.deref());
-    println!("{}", age_pointer)
+    let value = BoxedValue::new(10);
+    print_integer(&value)
 }
