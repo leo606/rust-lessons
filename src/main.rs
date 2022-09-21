@@ -1,31 +1,12 @@
 #![deny(clippy::all)]
 
-use std::cell::Cell;
-
-struct Person {
-    name: String,
-    age: Cell<u8>,
-}
-
-impl Person {
-    fn increment_age(&self) {
-        self.age.set(self.age.get() + 1);
-    }
-}
+use std::cell::RefCell;
 
 fn main() {
-    let person = Person {
-        name: "john".to_string(),
-        age: Cell::new(20),
-    };
+    let ref_cell = RefCell::new(vec![1, 2, 3]);
+    let mut mut_ref = ref_cell.borrow_mut();
 
-    let age = person.age.get();
-
-    println!("{}", age);
-
-    person.increment_age();
-
-    let new_age = person.age.get();
-
-    println!("{}", new_age);
+    let len = ref_cell.borrow().len();
+    mut_ref.push(11);
+    println!("{}", len)
 }
