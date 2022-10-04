@@ -1,12 +1,8 @@
 #![deny(clippy::all)]
 
-use std::cell::RefCell;
+use intutils::addition::add;
 
 fn main() {
-    let ref_cell = RefCell::new(vec![1, 2, 3]);
-    let mut mut_ref = ref_cell.borrow_mut();
-
-    let len = ref_cell.borrow().len();
-    mut_ref.push(11);
-    println!("{}", len)
+    let sum = add(2, 2);
+    println!("{}", sum);
 }
