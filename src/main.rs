@@ -11,7 +11,6 @@ fn call_api_1() -> impl Future<Output = String> {
         // stored in the heap
         // it lives on for as long as the async block lives on
         "one".to_string()
-
     }
 }
 
@@ -20,11 +19,21 @@ async fn call_api_2() -> String {
     "two".to_string()
 }
 
+fn get_async_name() -> impl Future<Output = String> {
+    let foo = "foo".to_string();
+    async move {
+        format!("{} bar", foo)
+    }
+}
+
 #[tokio::main]
 async fn main() {
     let name = call_api_1().await;
     println!("{}", name);
 
     let name2 = call_api_2().await;
-    println!("{}", name2)
+    println!("{}", name2);
+
+    let foorbar = get_async_name().await;
+    println!("{}", foorbar)
 }
