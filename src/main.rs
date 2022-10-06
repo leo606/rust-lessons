@@ -1,8 +1,12 @@
 #![deny(clippy::all)]
 
-use intutils::addition::add;
+use futures::executor::block_on;
+
+async fn get_name() -> String {
+    "John".to_string()
+}
 
 fn main() {
-    let sum = add(2, 2);
-    println!("{}", sum);
+    let name = block_on(get_name());
+    println!("{}", name)
 }
