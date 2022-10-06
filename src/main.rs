@@ -6,7 +6,11 @@ use tokio::time::{sleep, Duration};
 fn call_api_1() -> impl Future<Output = String> {
     async {
         sleep(Duration::from_secs(3)).await;
+
+        // stored in the heap
+        // it lives on for as long as the async block lives on
         "one".to_string()
+
     }
 }
 
