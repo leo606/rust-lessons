@@ -5,6 +5,7 @@ use tokio::time::{sleep, Duration};
 
 fn call_api_1() -> impl Future<Output = String> {
     async {
+        // its a good idea create all variables inside the async clock
         sleep(Duration::from_secs(3)).await;
 
         // stored in the heap
