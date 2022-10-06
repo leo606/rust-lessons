@@ -1,12 +1,14 @@
 #![deny(clippy::all)]
 
-use futures::executor::block_on;
+use tokio::time::{sleep, Duration};
 
-async fn get_name() -> String {
+async fn call_api_1() -> String {
+    sleep(Duration::from_secs(3)).await;
     "John".to_string()
 }
 
-fn main() {
-    let name = block_on(get_name());
+#[tokio::main]
+async fn main() {
+    let name = call_api_1().await;
     println!("{}", name)
 }
